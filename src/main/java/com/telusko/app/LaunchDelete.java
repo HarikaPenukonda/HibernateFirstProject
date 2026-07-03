@@ -8,45 +8,29 @@ import org.hibernate.cfg.Configuration;
 
 import com.telusko.model.Student;
 
-
-
-public class LaunchStandardApp {
+public class LaunchDelete {
 
 	public static void main(String[] args) {
 		
-		Configuration configuration = null;
-		
-		SessionFactory sessionFactory = null;
+		SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Student.class)
+				.configure().buildSessionFactory();
 		
 		Session session = null;
-		
 		Transaction transaction = null;
-		
 		boolean flag = false;
 		
-		configuration = new Configuration();
-		
-		configuration.configure();
-		
-		sessionFactory = configuration.buildSessionFactory();
-		
-		session = sessionFactory.openSession();
-		
-		transaction = session.beginTransaction();
-		
-		Student student = new Student(103, "penny", 20, "pennygirl@gmail.com");
-		
 		try {
-			
+			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
-			session.persist(student);
+			Student student = new Student(103, "penny", 20, "pennygirl@gmail.com");
+			session.remove(student);; // saveOrUpdate
 			flag = true;
 			
 		}
 		catch (HibernateException e) {
 			System.out.println(e);
 		}
-		catch (Exception e) {
+		catch(Exception e) {
 			System.out.println(e);
 		}
 		finally {
@@ -55,15 +39,7 @@ public class LaunchStandardApp {
 			}else {
 				transaction.rollback();
 			}
-			
-			session.close();
-			sessionFactory.close();
 		}
-		
-		
-		
-		
-		
 
 	}
 
