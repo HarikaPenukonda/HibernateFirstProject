@@ -2,6 +2,7 @@ package com.telusko.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Employee {
@@ -13,6 +14,7 @@ public class Employee {
 	
 	private String emp_dept;
 	
+	@Transient // tells Hibernate/JPA not to persist a field in the database.
 	private String location;
 	
 	public Employee() {
