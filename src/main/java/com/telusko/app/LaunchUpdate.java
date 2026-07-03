@@ -22,7 +22,7 @@ public class LaunchUpdate {
 		try {
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
-			Student student = new Student(102, "Raj Koothrapalli", 20, "koothrapallir@yahoo.com");
+			Student student = new Student(101, "Raj Koothrapalli", 20, "koothrapallir@yahoo.com");
 			session.merge(student); // saveOrUpdate
 			flag = true;
 			

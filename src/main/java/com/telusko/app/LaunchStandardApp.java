@@ -34,7 +34,7 @@ public class LaunchStandardApp {
 		
 		transaction = session.beginTransaction();
 		
-		Student student = new Student(103, "penny", 20, "pennygirl@gmail.com");
+		Student student = new Student(103, "Sheldon cooper", 19, "coopers@gmail.com");
 		
 		try {
 			
