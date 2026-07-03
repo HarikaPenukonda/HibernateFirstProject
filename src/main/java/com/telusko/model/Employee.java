@@ -1,8 +1,12 @@
 package com.telusko.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee {
 	
-	
+	@Id
 	private Integer emp_id;
 	
 	private String emp_name;
