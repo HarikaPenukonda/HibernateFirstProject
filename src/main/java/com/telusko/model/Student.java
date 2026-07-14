@@ -20,6 +20,7 @@ public class Student {
     // Default Constructor
     // Every Hibernate entity must have a no-argument (default) constructor. It can be public or protected.
     public Student() {
+    	System.out.println("Zero parametrised constructor");
     }
 
     // Parameterized Constructor
