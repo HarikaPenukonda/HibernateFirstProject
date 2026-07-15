@@ -46,23 +46,23 @@
         
         <!-- These properties are used to enable Hibernate's Second-Level Cache
         	works with Hibernate 5.x (using the hibernate-ehcache integration).
-        	Hibernate 6/7 use JCache instead. -->
-       
+        	Hibernate 6/7 use JCache instead. 
         <property name="hibernate.cache.region.factory_class">
     		org.hibernate.cache.jcache.internal.JCacheRegionFactory
 		</property>
 		<property name="hibernate.javax.cache.provider">
     		org.ehcache.jsr107.EhcacheCachingProvider
 		</property>
-		 <!-- <property name="hibernate.cache.region.factory_class">
+		  <property name="hibernate.cache.region.factory_class">
         		org.hibernate.cache.ehcache.EhCacheRegionFactory
-        </property>  -->
-        <!-- <property name="hibernate.javax.cache.uri">
+        </property> 
+        <property name="hibernate.javax.cache.uri">
     		ehcache.xml
-		</property> -->
+		</property>
         <property name="hibernate.cache.use_second_level_cache">
         	true
-        </property>
+        </property> -->
+       
 
         <!-- Entity Classes -->
         <!-- <mapping class="com.telusko.model.Student"/> -->
