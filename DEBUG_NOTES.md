@@ -79,3 +79,36 @@ Interview Insight:
 Hibernate communicates with the database through JDBC. If the JDBC driver is missing, Hibernate cannot create the JdbcEnvironment, and application startup fails.
 
 Status: ✅ Resolved
+
+Error #004
+------------------------------------------------------------
+
+Hibernate Error Report
+
+Error:
+
+java.lang.IllegalStateException: Cache provider not started
+Caused by: javax.cache.CacheException: No CachingProviders have been configured
+
+Cause:
+Hibernate 7 couldn't find a JCache provider because the Ehcache provider wasn't configured.
+
+Solution:
+
+Removed the old Hibernate 5 configuration:
+
+org.hibernate.cache.ehcache.EhCacheRegionFactory
+
+Added the JCache provider:
+
+<property name="hibernate.javax.cache.provider">
+    org.ehcache.jsr107.EhcacheCachingProvider
+</property>
+Used JCacheRegionFactory with Hibernate 7.
+
+Lesson Learned:
+
+Hibernate 5 → EhCacheRegionFactory
+Hibernate 6/7 → JCacheRegionFactory + JCache provider (Ehcache 3)
+
+Status: ✅ Resolved
