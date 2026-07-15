@@ -14,14 +14,12 @@
 	</dependency>
 	
 	<!-- Source: https://mvnrepository.com/artifact/org.hibernate/hibernate-jcache -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-jcache</artifactId>
-    <version>7.4.5.Final</version>
-    <type>pom</type>
-    <scope>compile</scope>
-</dependency>
-	
+	<dependency>
+	    <groupId>org.hibernate.orm</groupId>
+	    <artifactId>hibernate-jcache</artifactId>
+	    <version>7.4.3.Final</version>
+	</dependency>
+		
 	<!-- Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
 <dependency>
     <groupId>com.mysql</groupId>
