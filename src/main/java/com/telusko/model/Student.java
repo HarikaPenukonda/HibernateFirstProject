@@ -1,6 +1,8 @@
 package com.telusko.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,6 +11,7 @@ import jakarta.persistence.Table;
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // MYSQL database, AUTO - if we dont know the DB, SEQUENCE - oracle
     private int id;
 
     private String name;
@@ -25,8 +28,7 @@ public class Student {
 
     // Parameterized Constructor
     // This constructor is for our convenience, not for Hibernate.
-    public Student(int id, String name, int age, String email) {
-        this.id = id;
+    public Student(String name, int age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
