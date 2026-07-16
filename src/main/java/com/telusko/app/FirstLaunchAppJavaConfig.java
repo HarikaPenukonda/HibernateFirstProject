@@ -17,28 +17,7 @@ public class FirstLaunchAppJavaConfig {
 		// step 2 - configure hibernate.cfg.xml file to the configuration object
 		// configuration.configure(); - Not needed since there is no hibernate.cfg.xml file
 		
-		// step 2 - add hibernate propertie
-		configuration.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
-		configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/teluskodb");
-		configuration.setProperty("hibernate.connection.username", "root");
-		configuration.setProperty("hibernate.connection.password", "admin");
-		configuration.setProperty(
-		        "hibernate.dialect",
-		        "org.hibernate.dialect.MySQLDialect");
-
-		configuration.setProperty(
-		        "hibernate.show_sql",
-		        "true");
-
-		configuration.setProperty(
-		        "hibernate.format_sql",
-		        "true");
-
-		configuration.setProperty(
-		        "hibernate.hbm2ddl.auto",
-		        "update");
-		
-		// entity class
+		// register entity class
 		configuration.addAnnotatedClass(Student.class);
 		
 		// step 3 - Create session factory
@@ -51,7 +30,7 @@ public class FirstLaunchAppJavaConfig {
 		Transaction transaction = session.beginTransaction();
 		
 		// step 6 - Create student object
-		Student student = new Student(104,"Howard W",23,"wolowizard@gmail.com");
+		Student student = new Student(105,"Stuart Bloom",25,"sbloom@gmail.com");
 		
 		// step 7 - Perform operation - create
 		// If you're using Hibernate 6.x, the save() method has been removed from the main API.

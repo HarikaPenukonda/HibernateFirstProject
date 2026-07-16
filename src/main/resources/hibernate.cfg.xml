@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE hibernate-configuration PUBLIC
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -7,7 +7,7 @@
 <hibernate-configuration>
     <session-factory>
 
-        <!-- Database Connection -->
+        Database Connection
         <property name="hibernate.connection.driver_class">
             com.mysql.cj.jdbc.Driver
         </property>
@@ -24,29 +24,29 @@
             admin
         </property>
 
-        <!-- SQL Dialect -->
+        SQL Dialect
         <property name="hibernate.dialect">
             org.hibernate.dialect.MySQLDialect
         </property>
 
-        <!-- Show SQL in Console -->
+        Show SQL in Console
         <property name="hibernate.show_sql">
             true
         </property>
 
-        <!-- Format SQL -->
+        Format SQL
         <property name="hibernate.format_sql">
             true
         </property>
 
-        <!-- Automatically create/update tables -->
+        Automatically create/update tables
         <property name="hibernate.hbm2ddl.auto">
             update
         </property>
        
 
-        <!-- Entity Classes -->
-        <!-- <mapping class="com.telusko.model.Student"/> -->
+        Entity Classes
+        <mapping class="com.telusko.model.Student"/>
 
     </session-factory>
-</hibernate-configuration>
+</hibernate-configuration> -->
