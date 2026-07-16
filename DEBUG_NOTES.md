@@ -112,3 +112,54 @@ Hibernate 5 → EhCacheRegionFactory
 Hibernate 6/7 → JCacheRegionFactory + JCache provider (Ehcache 3)
 
 Status: ✅ Resolved
+
+------------------------------------------------------------
+Error #005
+------------------------------------------------------------
+
+Date:
+16-Jul-2026
+
+Topic:
+Hibernate ID Generation Strategy
+
+Error Message:
+The ID was generated as 1 instead of the expected initial value 100, even though @SequenceGenerator was configured.
+
+Cause:
+The entity was using:
+
+@GeneratedValue(
+    strategy = GenerationType.IDENTITY,
+    generator = "my_seq"
+)
+
+`GenerationType.IDENTITY` uses the database's AUTO_INCREMENT mechanism and ignores the @SequenceGenerator configuration. Therefore, the `initialValue` specified in `@SequenceGenerator` was not applied.
+
+Solution:
+Changed the generation strategy to:
+
+@GeneratedValue(
+    strategy = GenerationType.AUTO,
+    generator = "my_seq"
+)
+
+With `GenerationType.AUTO`, Hibernate selected an appropriate ID generation strategy for the underlying database and honored the configured generator, resulting in IDs starting from 100.
+
+Learning:
+- `GenerationType.IDENTITY` relies on the database's AUTO_INCREMENT feature and does not use `@SequenceGenerator`.
+- `@SequenceGenerator` is effective only when Hibernate uses a sequence-based strategy.
+- `GenerationType.AUTO` allows Hibernate to choose the most suitable strategy based on the database and configuration.
+
+Interview Insight:
+Understand the difference between ID generation strategies:
+
+- IDENTITY → Uses database AUTO_INCREMENT.
+- SEQUENCE → Uses a database sequence.
+- AUTO → Hibernate chooses the appropriate strategy.
+- TABLE → Uses a separate table to generate unique IDs.
+
+Always choose the generation strategy based on the capabilities of your database.
+
+Status:
+✅ Resolved

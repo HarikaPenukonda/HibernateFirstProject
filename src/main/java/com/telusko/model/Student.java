@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,7 +12,8 @@ import jakarta.persistence.Table;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // MYSQL database, AUTO - if we dont know the DB, SEQUENCE - oracle
+    @GeneratedValue(generator = "my_seq",strategy = GenerationType.AUTO) // MYSQL database, AUTO - if we dont know the DB, SEQUENCE - oracle
+    @SequenceGenerator(name="my_seq", sequenceName = "My_OwnSequence", initialValue = 100, allocationSize = 1)
     private int id;
 
     private String name;

@@ -30,7 +30,7 @@ public class FirstLaunchAppJavaConfig {
 		Transaction transaction = session.beginTransaction();
 		
 		// step 6 - Create student object
-		Student student = new Student("Stuart Bloom",25,"sbloom@gmail.com");
+		Student student = new Student("Penny",19,"peanny@gmail.com");
 		
 		// step 7 - Perform operation - create
 		// If you're using Hibernate 6.x, the save() method has been removed from the main API.
