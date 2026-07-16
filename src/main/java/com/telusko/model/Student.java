@@ -6,8 +6,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "student")
-//@Cacheable
-//@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 public class Student {
 
     @Id
