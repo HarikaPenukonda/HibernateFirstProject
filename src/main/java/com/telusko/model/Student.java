@@ -30,7 +30,8 @@ public class Student {
 
     // Parameterized Constructor
     // This constructor is for our convenience, not for Hibernate.
-    public Student(String name, int age, String email) {
+    public Student( int id, String name, int age, String email) {
+    	this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
